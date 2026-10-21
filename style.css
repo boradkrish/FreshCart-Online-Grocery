@@ -1,0 +1,166 @@
+:root {
+  --forest: #164c36;
+  --green: #24764b;
+  --cream: #f8f8f2;
+  --line: #e3e9dd;
+  --ink: #19342a;
+  --muted: #587064;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+h1, h2 {
+  font-family: "Fraunces", serif;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid #e99b3e;
+  outline-offset: 3px;
+}
+
+.site-shell {
+  width: 100%;
+  overflow-x: clip;
+}
+
+.site-width {
+  width: min(100% - 40px, 1240px);
+  margin-inline: auto;
+}
+
+.hero-art {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+}
+
+.hero-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(17,62,40,.97) 0%, rgba(17,62,40,.88) 43%, rgba(17,62,40,.08) 100%);
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.category-card, .product-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover, .product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(24, 65, 43, 0.11);
+}
+
+.category-card[aria-pressed="true"], .filter-button[aria-pressed="true"] {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(10, 31, 22, 0.54);
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 41;
+  width: min(100%, 480px);
+  height: 100vh;
+  overflow-y: auto;
+  background: #ffffff;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.16);
+}
+
+.cart-drawer[hidden], .drawer-backdrop[hidden], [hidden] {
+  display: none !important;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #cbd9cf;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: white;
+  color: var(--ink);
+}
+
+.field:focus {
+  border-color: var(--green);
+  outline: 3px solid #d8ecdb;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d8e3da;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stepper button {
+  width: 34px;
+  height: 34px;
+  font-weight: 700;
+  background: none;
+  border: none;
+}
+
+.stepper button:hover {
+  background: #eef6ec;
+}
+
+.stepper span {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+@media (max-width: 650px) {
+  .site-width {
+    width: min(100% - 28px, 1240px);
+  }
+  .hero-art {
+    min-height: 440px;
+  }
+  .hero-art::after {
+    background: linear-gradient(90deg, rgba(17,62,40,.97), rgba(17,62,40,.72));
+  }
+}
